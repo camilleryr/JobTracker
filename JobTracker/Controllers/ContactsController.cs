@@ -46,7 +46,8 @@ namespace JobTracker.Controllers
         // GET: Contacts/Create
         public IActionResult Create()
         {
-            return View();
+            ContactJoin contactJoin = new ContactJoin(_context);
+            return View(contactJoin);
         }
 
         // POST: Contacts/Create

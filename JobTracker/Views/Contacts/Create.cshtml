@@ -1,4 +1,4 @@
-﻿@model JobTracker.Models.Contact
+﻿@model JobTracker.Models.ContactJoin
 
 @{
     ViewData["Title"] = "Create";
@@ -27,6 +27,15 @@
                 <input asp-for="PhoneNum" class="form-control" />
                 <span asp-validation-for="PhoneNum" class="text-danger"></span>
             </div>
+            <p>
+                @Html.DropDownListFor(x => x.Job,
+                          new SelectList(Model.Job, "JobId", "JobTitle"), "-- Attach to Job --")
+            </p>
+            <p>
+                @Html.DropDownListFor(x => x.Company,
+                             new SelectList(Model.Company, "CompanyId", "Name"), "-- Attach to Company --")
+            </p>
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
